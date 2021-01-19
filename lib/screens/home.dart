@@ -73,19 +73,26 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     return Scaffold(
       appBar: AppBar(title: Text('Anima Cat!')),
       backgroundColor: Color(0xFFB7A6B1),
-      body: GestureDetector(
-        child: Center(
-          child: Stack(
-            clipBehavior: Clip.none,
-            children: [
-              buildCatAnimation(),
-              buildBox(),
-              buildLeftFlap(),
-              buildRightFlap(),
-            ],
+      body: Center(
+        child: Container(
+          padding: EdgeInsets.only(bottom: 120.0),
+          color: Colors.green,
+          height: 400.0,
+          child: GestureDetector(
+            child: Center(
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  buildCatAnimation(),
+                  buildBox(),
+                  buildLeftFlap(),
+                  buildRightFlap(),
+                ],
+              ),
+            ),
+            onTap: onTap,
           ),
         ),
-        onTap: onTap,
       ),
     );
   }
@@ -152,6 +159,14 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           width: 125.0,
         ),
       ),
+    );
+  }
+
+  Widget buildGrassField() {
+    return Container(
+      height: 400.0,
+      width: 300.0,
+      color: Colors.green,
     );
   }
 }
