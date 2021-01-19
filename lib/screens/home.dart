@@ -9,6 +9,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> with TickerProviderStateMixin {
   Animation<double> catAnimation;
   AnimationController catController;
+
   @override
   void initState() {
     super.initState();
@@ -26,6 +27,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         curve: Curves.easeIn,
       ),
     );
+    catController.forward();
   }
 
   @override
@@ -41,8 +43,14 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   Widget buildAnimation() {
     return AnimatedBuilder(
       animation: catAnimation,
-      builder: (BuildContext context, Widget child) {},
       child: Cat(),
+      builder: (BuildContext context, Widget child) {
+        return Container(
+          color: Colors.blue.shade200,
+          child: child,
+          margin: EdgeInsets.only(top: catAnimation.value),
+        );
+      },
     );
   }
 }
