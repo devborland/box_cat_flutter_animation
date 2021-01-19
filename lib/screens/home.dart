@@ -39,6 +39,10 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   }
 
   Widget buildAnimation() {
-    return Cat();
+    return AnimatedBuilder(
+      animation: catAnimation,
+      builder: (BuildContext context, Widget child) {},
+      child: Cat(),
+    );
   }
 }
